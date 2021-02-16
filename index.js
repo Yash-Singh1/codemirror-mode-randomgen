@@ -11,11 +11,11 @@
   CodeMirror.defineSimpleMode('randomgen', {
     start: [
       // Settings definitions
-      { regex: /(\$)(name|author|description|picture|button|seed text)( : )(.*?)$/, sol: true, token: ['bracket', 'atom', null, 'string'] },
-      { regex: /(\$)(picture)( : )(.*?)$/, sol: true, token: ['bracket', 'atom', null, 'link'] },
-      { regex: /(\$)(amount)( : )(\d+)/, sol: true, token: ['bracket', 'atom', null, 'number'] },
-      { regex: /(\$)(include)( .*?)$/, sol: true, token: ['bracket', 'atom', 'link'] },
-      { regex: /(\$)(all roots)/, sol: true, token: ['bracket', 'atom'] },
+      { regex: /(\$)(name|author|description|picture|button|seed text)( : )(.*?)$/, sol: true, token: ['bracket', 'def', null, 'string'] },
+      { regex: /(\$)(picture)( : )(.*?)$/, sol: true, token: ['bracket', 'def', null, 'link'] },
+      { regex: /(\$)(amount)( : )(\d+)/, sol: true, token: ['bracket', 'def', null, 'number'] },
+      { regex: /(\$)(include)( .*?)$/, sol: true, token: ['bracket', 'def', 'link'] },
+      { regex: /(\$)(all roots)/, sol: true, token: ['bracket', 'def'] },
 
       // List defintions
       { regex: /(\$[+>]?)(.*?)$/, sol: true, token: ['bracket', 'variable'] },
