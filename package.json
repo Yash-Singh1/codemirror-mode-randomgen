@@ -1,0 +1,13 @@
+{
+  "name": "codemirror-mode-randomgen",
+  "version": "1.0.0",
+  "description": "CodeMirror mode for RandomGen",
+  "main": "index.js",
+  "keywords": [
+    "randomgen",
+    "codemirror",
+    "mode"
+  ],
+  "author": "Yash Singh",
+  "license": "MIT"
+}
