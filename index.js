@@ -30,6 +30,7 @@
       { regex: /\[/, token: 'bracket', push: 'open' },
       { regex: /]/, token: 'bracket', pop: true },
       { regex: /\||,|%/, token: 'bracket' },
+      { regex: /x?\d+-\d+/, token: 'number' },
       { regex: /(?!%)(.*?)(?=[,\]|])/, token: ['variable', 'variable', null] }
     ]
   });
