@@ -35,8 +35,9 @@
       { regex: /\[/, token: 'bracket', push: 'open' },
       { regex: /]/, token: 'bracket', pop: true },
       { regex: /\||,|%|#/, token: 'bracket' },
-      { regex: /x?\d+-\d+/, token: 'number' },
-      { regex: /first part|middle part|last part|compress|mundane|written|unique|lower|title/, token: 'keyword' },
+      { regex: /(\d+-\d+)(?=[\],])/, token: ['number', null] },
+      { regex: /(x\d+)(-\d+)?(?=[,\]])/, token: ['number', 'number', null] },
+      { regex: /(first part|middle part|last part|compress|mundane|written|unique|lower|title)(?=[,\]])/, token: ['keyword', null] },
       { regex: /(as|or)( .*?)(?=[,\]])/, token: ['keyword', 'variable-2', null] },
       { regex: /(?!%)(.*?)(?=[,\]|])/, token: ['variable', 'variable', null] }
     ],
