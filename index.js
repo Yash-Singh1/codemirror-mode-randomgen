@@ -22,7 +22,11 @@
 
       // Strings and list references
       { regex: /(.*?)([\[])/, token: ['string', 'bracket'], push: 'open' },
-      { regex: /(.*?$)/, token: 'string' }
+      { regex: /(.*?$)/, token: 'string' },
+
+      // Comments (Note: comments start from beginning of the line)
+      { regex: /\/\/.*/, sol: true, token: 'comment' },
+      { regex: /\/\*/, sol: true, token: 'comment', next: 'comment' }
     ],
 
     // Handling references to lists
@@ -33,6 +37,18 @@
       { regex: /x?\d+-\d+/, token: 'number' },
       { regex: /first part|middle part|last part|Abc|abc|ABC|compress|mundane|lower|title/, token: 'keyword' },
       { regex: /(?!%)(.*?)(?=[,\]|])/, token: ['variable', 'variable', null] }
-    ]
+    ],
+
+    // The multi-line comment state.
+    comment: [
+      { regex: /.*?\*\//, sol: true, token: 'comment', next: 'start' },
+      { regex: /.*/, token: 'comment' }
+    ],
+
+    // Data about the mode
+    meta: {
+      dontIndentStates: ['comment'],
+      lineComment: '//'
+    }
   });
 });
