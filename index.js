@@ -20,9 +20,10 @@
       // List defintions
       { regex: /(\$[+>]?)(.*?)$/, sol: true, token: ['bracket', 'variable'] },
 
-      // Strings and list references
-      { regex: /(.*?)([\[])/, token: ['string', 'bracket'], push: 'open' },
-      { regex: /(.*?$)/, token: 'string' },
+      // Strings and list references and attributes and chances
+      { regex: /(.*?)(\[)/, token: ['string', 'bracket'], push: 'open' },
+      { regex: /(.*?)({)/, token: ['string', 'bracket'], push: 'object' },
+      { regex: /.*?$/, token: 'string' },
 
       // Comments (Note: comments start from beginning of the line)
       { regex: /\/\/.*/, sol: true, token: 'comment' },
@@ -37,6 +38,13 @@
       { regex: /x?\d+-\d+/, token: 'number' },
       { regex: /first part|middle part|last part|Abc|abc|ABC|compress|mundane|lower|title/, token: 'keyword' },
       { regex: /(?!%)(.*?)(?=[,\]|])/, token: ['variable', 'variable', null] }
+    ],
+
+    object: [
+      { regex: /}/, token: 'bracket', pop: true },
+      { regex: /,/, token: 'bracket' },
+      { regex: /(.*?%)(?=})/, token: ['number', null] },
+      { regex: /([^{},]*?)(:)([^{},]*?)(?=[,}])/, token: ['variable-2', null, 'string', null] },
     ],
 
     // The multi-line comment state.
