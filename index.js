@@ -29,7 +29,7 @@
     open: [
       { regex: /\[/, token: 'bracket', push: 'open' },
       { regex: /]/, token: 'bracket', pop: true },
-      { regex: /\||,|%/, token: 'bracket' },
+      { regex: /\||,|%|#/, token: 'bracket' },
       { regex: /x?\d+-\d+/, token: 'number' },
       { regex: /first part|middle part|last part|Abc|abc|ABC|compress|mundane|lower|title/, token: 'keyword' },
       { regex: /(?!%)(.*?)(?=[,\]|])/, token: ['variable', 'variable', null] }
