@@ -15,7 +15,7 @@
       { regex: /(\$)(picture)( : )(.*?)$/, sol: true, token: ['bracket', 'def', null, 'link'] },
       { regex: /(\$)(amount)( : )(\d+)/, sol: true, token: ['bracket', 'def', null, 'number'] },
       { regex: /(\$)(include)( .*?)$/, sol: true, token: ['bracket', 'def', 'link'] },
-      { regex: /(\$)(all roots|allow duplicates|force unique)/, sol: true, token: ['bracket', 'def'] },
+      { regex: /(\$)(all roots|allow duplicates|force unique|includes finalized)/, sol: true, token: ['bracket', 'def'] },
 
       // List defintions
       { regex: /(\$[+>]?)(.*?)$/, sol: true, token: ['bracket', 'variable'] },
