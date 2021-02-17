@@ -18,7 +18,7 @@
       { regex: /(\$)(all roots|allow duplicates|force unique|includes finalized)/, sol: true, token: ['bracket', 'def'] },
 
       // List defintions
-      { regex: /(\$[+>]?)(.*?)$/, sol: true, token: ['bracket', 'variable'] },
+      { regex: /(\$(?:\+>|>\+|\+|>)?)(.*?)$/, sol: true, token: ['bracket', 'variable'] },
 
       // Strings and list references and attributes and chances
       { regex: /(.*?)(\[)/, token: ['string', 'bracket'], push: 'open' },
