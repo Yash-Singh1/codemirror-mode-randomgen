@@ -37,6 +37,7 @@
       { regex: /\||,|%|#/, token: 'bracket' },
       { regex: /x?\d+-\d+/, token: 'number' },
       { regex: /first part|middle part|last part|compress|mundane|written|unique|lower|title/, token: 'keyword' },
+      { regex: /(as|or)( .*?)(?=[,\]])/, token: ['keyword', 'variable-2', null] },
       { regex: /(?!%)(.*?)(?=[,\]|])/, token: ['variable', 'variable', null] }
     ],
 
