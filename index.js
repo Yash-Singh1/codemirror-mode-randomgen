@@ -45,7 +45,7 @@
       { regex: /}/, token: 'bracket', pop: true },
       { regex: /,/, token: 'bracket' },
       { regex: /(.*?%)(?=})/, token: ['number', null] },
-      { regex: /([^{},]*?)(:)([^{},]*?)(?=[,}])/, token: ['variable-2', null, 'string', null] },
+      { regex: /([^{},]*?)(:)([^{},]*?)(?=[,}])/, token: ['variable-2', null, 'string', null] }
     ],
 
     // The multi-line comment state.
@@ -57,7 +57,10 @@
     // Data about the mode
     meta: {
       dontIndentStates: ['comment'],
-      lineComment: '//'
+      lineComment: '//',
+      blockCommentStart: '/*',
+      blockCommentEnd: '*/',
+      closeBrackets: '[]{}'
     }
   });
 });
