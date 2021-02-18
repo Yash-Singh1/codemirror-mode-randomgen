@@ -46,7 +46,7 @@
       { regex: /}/, token: 'bracket', pop: true },
       { regex: /,/, token: 'bracket' },
       { regex: /\[/, token: 'bracket', push: 'open' },
-      { regex: /(.*?%)(?=})/, token: ['number', null] },
+      { regex: /^(\d+%)(?=})/, token: 'number' },
       { regex: /([^{},]*?)(:)([^{},]*?)(?=[,}])/, token: ['variable-2', null, 'string', null] }
     ],
 
