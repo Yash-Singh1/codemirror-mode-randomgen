@@ -1,6 +1,6 @@
 {
   "name": "codemirror-mode-randomgen",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "CodeMirror mode for RandomGen",
   "main": "index.js",
   "keywords": [
