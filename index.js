@@ -21,7 +21,7 @@
       { regex: /(\$(?:\+>|>\+|\+|>)?)(.*?)$/, sol: true, token: ['bracket', 'variable'] },
 
       // Strings and list references and attributes and chances
-      { regex: /(.*?)(\[)/, token: ['string', 'bracket'], push: 'open' },
+      { regex: /([^{\r\n]*?)(\[)/, token: ['string', 'bracket'], push: 'open' },
       { regex: /(.*?)({)/, token: ['string', 'bracket'], push: 'object' },
       { regex: /.*?$/, token: 'string' },
 
@@ -39,7 +39,7 @@
       { regex: /(x\d+)(-\d+)?(?=[,\]])/, token: ['number', 'number', null] },
       { regex: /(first part|middle part|last part|compress|mundane|written|unique|lower|title)(?=[,\]])/, token: ['keyword', null] },
       { regex: /(as|or)( .*?)(?=[,\]])/, token: ['keyword', 'variable-2', null] },
-      { regex: /(?!%)(.*?)(?=[,\]|])/, token: ['variable', 'variable', null] }
+      { regex: /(?!%)(.*?)(?=[,\[\]|])/, token: 'variable' }
     ],
 
     object: [
@@ -47,7 +47,8 @@
       { regex: /,/, token: 'bracket' },
       { regex: /\[/, token: 'bracket', push: 'open' },
       { regex: /^(\d+%)(?=})/, token: 'number' },
-      { regex: /([^{},]*?)(:)([^{},]*?)(?=[,}])/, token: ['variable-2', null, 'string', null] }
+      { regex: /([^{},]*?)(:)([^}\[,]*?)(?=[,}\[])/, token: ['variable-2', 'bracket', 'string', null] },
+      { regex: /^([^\[]*?)([,\}])/, token: ['string', 'bracket'] }
     ],
 
     // The multi-line comment state.
