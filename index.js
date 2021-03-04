@@ -13,6 +13,7 @@
       if (CodeMirror.getMode(config, 'xml').name !== 'null' && typeof CodeMirror.overlayMode === 'function') {
         return CodeMirror.overlayMode(baseMode, CodeMirror.getMode(config, 'xml'));
       }
+      return baseMode;
     }
     return giveMode(
       CodeMirror.simpleMode('randomgen', {
