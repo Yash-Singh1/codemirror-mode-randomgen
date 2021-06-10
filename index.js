@@ -53,7 +53,7 @@
         object: [
           { regex: /}/, token: 'bracket', pop: true },
           { regex: /\[/, token: 'bracket', push: 'open' },
-          { regex: /^(\d+%)(?=})/, token: 'number' },
+          { regex: /^(\d+(\.\d*)?%)(?=})/, token: 'number' },
           { regex: /^(.*?)(:)(.*?)(?=[\[}])/, token: ['variable-2', 'bracket', 'string'] },
           { regex: /^(.*?)(?=})/, token: 'string' }
         ],
