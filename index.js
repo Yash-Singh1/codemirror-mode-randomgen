@@ -23,7 +23,7 @@
           { regex: /(\$)(name|author|description|picture|button|seed text)( : )(.*?)$/, sol: true, token: ['bracket', 'def', null, 'string'] },
           { regex: /(\$)(picture)( : )(.*?)$/, sol: true, token: ['bracket', 'def', null, 'link'] },
           { regex: /(\$)(amount)( : )(\d+)/, sol: true, token: ['bracket', 'def', null, 'number'] },
-          { regex: /(\$)(include)( .*?)$/, sol: true, token: ['bracket', 'def', 'link'] },
+          { regex: /(\$)(include)( )(.*?)$/, sol: true, token: ['bracket', 'def', null, 'link'] },
           { regex: /(\$)(all roots|allow duplicates|force unique|includes finalized)/, sol: true, token: ['bracket', 'def'] },
 
           // List defintions
