@@ -18,6 +18,10 @@
     return giveMode(
       CodeMirror.simpleMode('randomgen', {
         start: [
+          // Comments (Note: comments start from beginning of the line)
+          { regex: /\/\/[^]*$/, sol: true, token: 'comment' },
+          { regex: /\/\*/, sol: true, token: 'comment', next: 'comment' },
+
           // Settings definitions
           { regex: /(\$)(name|author|description|picture|button|seed text)( : )(.*?)$/, sol: true, token: ['bracket', 'def', null, 'string'] },
           { regex: /(\$)(picture)( : )(.*?)$/, sol: true, token: ['bracket', 'def', null, 'link'] },
@@ -31,11 +35,7 @@
           // Strings and list references and attributes and chances
           { regex: /([^{\r\n]*?)(\[)/, token: ['string', 'bracket'], push: 'open' },
           { regex: /(.*?)({)/, token: ['string', 'bracket'], push: 'object' },
-          { regex: /.*?$/, token: 'string' },
-
-          // Comments (Note: comments start from beginning of the line)
-          { regex: /\/\/.*/, sol: true, token: 'comment' },
-          { regex: /\/\*/, sol: true, token: 'comment', next: 'comment' }
+          { regex: /.*?$/, token: 'string' }
         ],
 
         // Handling references to lists
