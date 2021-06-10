@@ -42,11 +42,11 @@
         open: [
           { regex: /\[/, token: 'bracket', push: 'open' },
           { regex: /]/, token: 'bracket', pop: true },
+          { regex: /(,)(as|or)( .*?)(?=[,\]])/, token: ['bracket', 'keyword', 'variable-2'] },
           { regex: /\||,|%|#/, token: 'bracket' },
           { regex: /\d+-\d+(?=[\],])/, token: 'number' },
           { regex: /x\d+(-\d+)?(?=[,\]])/, token: 'number' },
           { regex: /(first part|middle part|last part|compress|mundane|written|hidden|unique|lower|title)(?=[,\]])/, token: 'keyword' },
-          { regex: /(?<=,)(as|or)( .*?)(?=[,\]])/, token: ['keyword', 'variable-2'] },
           { regex: /(?!%)(.*?)(?=[,\[\]|])/, token: 'variable' }
         ],
 
