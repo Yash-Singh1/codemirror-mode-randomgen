@@ -1,4 +1,5 @@
 (function (mod) {
+  /* istanbul ignore next */
   if (typeof exports == 'object' && typeof module == 'object')
     // CommonJS
     mod(require('codemirror'));
@@ -55,7 +56,7 @@
           { regex: /\[/, token: 'bracket', push: 'open' },
           { regex: /^(\d+(\.\d*)?%)(?=})/, token: 'number' },
           { regex: /^(.*?)(:)(.*?)(?=[\[}])/, token: ['variable-2', 'bracket', 'string'] },
-          { regex: /^(.*?)(?=})/, token: 'string' }
+          { regex: /^([^[\s]*?)(?=[[}])/, token: 'string' }
         ],
 
         // The multi-line comment state.
