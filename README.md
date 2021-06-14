@@ -5,7 +5,7 @@ CodeMirror Mode for [RandomGen](https://orteil.dashnet.org/randomgen/?do=create)
 ## Installation
 
 ```sh
-npm install --save codemirror-mode-randomgen
+npm install codemirror-mode-randomgen
 ```
 
 ## Requirements
